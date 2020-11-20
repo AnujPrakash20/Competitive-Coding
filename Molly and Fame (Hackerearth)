@@ -1,0 +1,72 @@
+Molly is in love with Sherlock .She wants to decide the nature of relationship between her and Sherlock using the game of FLAME.
+FLAME stands for:
+{"Friendship","Love","Affection","Marriage","Enemies"}
+
+The rules of FLAME are:
+
+1) The names of two people are taken.
+
+2) Then the common letters are deleted from both the names.
+
+3) Then x_rem is calculated which is the number of leftover letters in both the names.
+
+4) Count through the letters of "FLAME" x_rem times. After you have counted the 5 letters of "FLAME," you can continue counting from 6 to 10 starting again at "F" and ending at "E," if needed. If you have more than 10 leftover letters, repeat the process a third time, starting with "F."
+
+5) The letter at which you stop decides the nature of relationship.
+
+Example:
+
+1)consider the strings sherlock and molly.
+
+2)After striking off the common letters : sherck my
+
+3) x_rem = len(sherck) + len(my) = 8
+
+4) counting through the letters of FLAME.
+
+FLAME
+12345
+678
+
+5) The count stops at A . Hence the result is Affection.
+
+However , Molly is not happy with the result of the game(Affection) and she manipulates the string FLAME TO FALME to change the result of the game(Love).
+
+Given two names perform minimum number of swaps on the string "FLAME" and print the new string so that nature of relationship is always Love.
+
+Input Format:
+First line containing number of testcases t. Next t lines contain two space separated names in lowercase.
+Output Format:
+Print the new string in a new line for each testcase.
+
+Constraints:
+SAMPLE INPUT 
+2
+sherlock molly
+watson mary
+SAMPLE OUTPUT 
+FALME
+FALME
+
+###########################################################################################################################################################
+
+# Write your code here
+for _ in range(int(input())):
+    x,y=map(str,input().split())
+    count=0
+    for char in x:
+        if char in y:
+            continue
+        else:
+            count+=1
+    for char in y:
+        if char in x:
+            continue
+        else:
+            count+=1
+    p="FLAME"
+    s=[]
+    for char in p:
+        s.append(char)
+    s[1],s[(count%len(s))-1]=s[(count%len(s))-1],s[1]
+    print(''.join(s))
