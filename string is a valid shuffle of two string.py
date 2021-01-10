@@ -1,3 +1,7 @@
+#This is a program where we are checking that whether the resultant string is a valid shuffle of the two given string
+#Rule for valid string:
+#1: The length of the resultant string should be same.
+#2: The order of both the string in the resultant string should be same.
 s1='ab'
 s2='12'
 s3='z12b'
